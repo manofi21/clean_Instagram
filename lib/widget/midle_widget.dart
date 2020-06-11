@@ -79,7 +79,8 @@ ListView listProfile(List<String> stories) {
         width: 60.0,
         height: 60.0,
         decoration: shapeCircleShadows(),
-        child: circleProfile(stories[index], Size(60, 60)),
+        child: circleProfile(stories[index], Size(60, 60),
+            callmethod: () => goToStory(context)),
       );
     },
   );

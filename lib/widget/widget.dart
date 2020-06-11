@@ -67,8 +67,10 @@ Decoration shapeCircleShadows() {
   );
 }
 
-CircleAvatar circleProfile(String images, Size size) {
-  return CircleAvatar(
+InkWell circleProfile(String images, Size size, {VoidCallback callmethod}) {
+  return InkWell(
+    onTap: (callmethod != null) ? callmethod : null,
+      child: CircleAvatar(
     child: ClipOval(
       child: Image(
         height: size.height,
@@ -77,7 +79,7 @@ CircleAvatar circleProfile(String images, Size size) {
         fit: BoxFit.cover,
       ),
     ),
-  );
+  ));
 }
 
 Text stringBold(String string) {
@@ -100,25 +102,24 @@ Text viewLikeCommant(int commandcount) {
 }
 
 Container tileImageList(String imagePost) {
- return Container(
-                        margin: EdgeInsets.all(10.0),
-                        width: double.infinity,
-                        height: 400.0,
-                        decoration:
-   BoxDecoration(
-    borderRadius: BorderRadius.circular(25.0),
-    boxShadow: [
-      BoxShadow(
-        color: Colors.black45,
-        offset: Offset(0, 5),
-        blurRadius: 8.0,
-      ),
-    ],
-    image: DecorationImage(
-      image: AssetImage(imagePost),
-      fit: BoxFit.fill,
-    ),
-  ));
+  return Container(
+      margin: EdgeInsets.all(10.0),
+      width: double.infinity,
+      height: 400.0,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black45,
+            offset: Offset(0, 5),
+            blurRadius: 8.0,
+          ),
+        ],
+        image: DecorationImage(
+          image: AssetImage(imagePost),
+          fit: BoxFit.fill,
+        ),
+      ));
 }
 
 EdgeInsets horizonW(double h) {
