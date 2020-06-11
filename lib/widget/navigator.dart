@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_layout_clean/models/model.dart';
+import 'package:instagram_layout_clean/screens/feed_screen.dart';
 import 'package:instagram_layout_clean/screens/post_screen.dart';
 import 'package:instagram_layout_clean/screens/story_screen.dart';
 
@@ -20,4 +21,8 @@ void goBack(BuildContext context) {
 
 void goToStory(BuildContext context) {
   Navigator.push(context, MaterialPageRoute(builder: (context) => StoryPage()));
+}
+
+void goToFeedScreen(BuildContext context) {
+  Navigator.push(context, MaterialPageRoute(builder: (context) => FeedScreen()));
 }

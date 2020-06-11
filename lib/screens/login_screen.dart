@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_layout_clean/widget/navigator.dart';
 import 'package:instagram_layout_clean/widget/widget.dart';
 
 class Regist extends StatelessWidget {
@@ -64,7 +65,7 @@ class Regist extends StatelessWidget {
                       children: <Widget>[
                         columnTextFormField(username, "Username"),
                         columnTextFormField(password, "Password"),
-                        buttonAuth(Colors.blue, "Login", () {}),
+                        buttonAuth(Colors.blue, "Login", () => goToFeedScreen(context)),
                         buttonAuth(Colors.black12, "Add Users", () {}),
                       ],
                     ),
