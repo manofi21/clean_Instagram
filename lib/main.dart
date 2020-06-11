@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_layout_clean/screens/feed_screen.dart';
 
+import 'screens/login_screen.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -9,7 +11,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Instagram ',
       debugShowCheckedModeBanner: false,
-      home: FeedScreen(),
+      home: Regist(),
+      // home: FeedScreen()
     );
   }
 }

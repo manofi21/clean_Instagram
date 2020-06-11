@@ -54,6 +54,8 @@ EdgeInsets verticalW(double v) {
   return EdgeInsets.symmetric(vertical: v);
 }
 
+// Widget
+
 Decoration shapeCircleShadows() {
   return BoxDecoration(
     shape: BoxShape.circle,
@@ -69,17 +71,17 @@ Decoration shapeCircleShadows() {
 
 InkWell circleProfile(String images, Size size, {VoidCallback callmethod}) {
   return InkWell(
-    onTap: (callmethod != null) ? callmethod : null,
+      onTap: (callmethod != null) ? callmethod : null,
       child: CircleAvatar(
-    child: ClipOval(
-      child: Image(
-        height: size.height,
-        width: size.width,
-        image: AssetImage(images),
-        fit: BoxFit.cover,
-      ),
-    ),
-  ));
+        child: ClipOval(
+          child: Image(
+            height: size.height,
+            width: size.width,
+            image: AssetImage(images),
+            fit: BoxFit.cover,
+          ),
+        ),
+      ));
 }
 
 Text stringBold(String string) {
@@ -181,5 +183,88 @@ FlatButton postYourCommand() {
       size: 25.0,
       color: Colors.white,
     ),
+  );
+}
+
+Decoration gradient({bool withRadius}) {
+  BorderRadiusGeometry radius;
+  List<BoxShadow> shadows;
+  if (withRadius == true) {
+    radius = BorderRadius.all(Radius.circular(12));
+    shadows = [
+      BoxShadow(
+          blurRadius: 18.0,
+          color: Colors.transparent.withOpacity(.5),
+          spreadRadius: 12.5),
+    ];
+  } else {
+    radius = null;
+    shadows = null;
+  }
+  return BoxDecoration(
+    borderRadius: radius,
+    boxShadow: shadows,
+    gradient: LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomCenter,
+      //jumlah stop berbanding lurus dengan jumlah warna
+      stops: [0.3, 0.6, 0.9],
+      colors: [
+        Color.fromRGBO(12, 235, 235, 1),
+        Color.fromRGBO(32, 227, 178, 1),
+        Color.fromRGBO(41, 255, 198, 1),
+      ],
+    ),
+  );
+}
+
+Column columnTextFormField(TextEditingController name, String names) {
+  return Column(children: [
+    Text(names),
+    Container(
+        margin: EdgeInsets.only(top: 10, bottom: 8),
+        child: TextFormField(
+          controller: name,
+          decoration: InputDecoration(
+              hintText: names,
+              prefixIcon: Icon(Icons.message),
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(28))),
+        ))
+  ]);
+}
+
+FlatButton buttonAuth(Color colors, String bNames, VoidCallback callBack) {
+  return FlatButton(
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+    color: colors,
+    textColor: Colors.white,
+    child: Text(bNames),
+    onPressed: callBack,
+  );
+}
+
+Widget openingImage() {
+  return Container(
+    width: 70,
+    height: 70,
+    decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/imgprofile.jpg'), fit: BoxFit.fill),
+        shape: BoxShape.circle),
+  );
+}
+
+Widget addProfileUser(VoidCallback voidMethod) {
+  return FlatButton(
+    padding: EdgeInsets.zero,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+    color: Colors.blue,
+    textColor: Colors.white,
+    child: Text(
+      'Add Image',
+      style: TextStyle(fontSize: 9),
+    ),
+    onPressed: voidMethod,
   );
 }
